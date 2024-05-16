@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/modules/smb_simple/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Smb simple - IGM documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "IGM module smb_simple", url: "#_top", children: [
+          ]},
+          {title: "Description:", url: "#description", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h3 id="igm-module-smb_simple"><h1 align="center" id="title">IGM module <code>smb_simple</code> </h1></h3>
+<h1 id="description">Description:</h1>
+<p>This IGM modules models a simple surface mass balance model parametrized by time-evolving ELA $z_{ELA}$, ablation $\beta_{abl}$ and accumulation $\beta_{acc}$ gradients, and max accumulation $m_{acc}$ parameters:</p>
+<p>$$SMB(z)=min(\beta_{acc} (z-z_{ELA}),m_{acc})\quad\textrm{if}\;z&gt;z_{ELA},$$
+$$SMB(z)=\beta_{abl} (z-z_{ELA})\quad\textrm{else}.$$</p>
+<p>These parameters may be given in file (file name given in <code>smb_simple_file</code> parameter), which look like this</p>
+<pre><code class="language-dat">time   gradabl  gradacc    ela   accmax
+1900     0.009    0.005   2800      2.0
+2000     0.009    0.005   2900      2.0
+2100     0.009    0.005   3300      2.0
+</code></pre>
+<p>or directly as parameter in the cconfig <code>params.json</code> file:</p>
+<pre><code class="language-json">&quot;smb_simple_array&quot;: [ 
+                     [&quot;time&quot;, &quot;gradabl&quot;, &quot;gradacc&quot;, &quot;ela&quot;, &quot;accmax&quot;],
+                     [ 1900,      0.009,     0.005,  2800,      2.0],
+                     [ 2000,      0.009,     0.005,  2900,      2.0],
+                     [ 2100,      0.009,     0.005,  3300,      2.0]
+                    ],
+</code></pre>
+<p>If parameter <code>smb_simple_array</code> is set to empty list <code>[]</code>, then it will read the file <code>smb_simple_file</code>, otherwise it read the array <code>smb_simple_array</code> (which is here in fact a list of list).</p>
+<p>The module will compute surface mass balance at a frequency given by parameter <code>smb_simple_update_freq</code> (default is 1 year), and interpolate linearly the 4 parameters in time.</p>
+<p>If one has provided in input an "icemask" field, then this module will compute negative surface mass balance (-10 m/y) in place where posstive surface mass balance outside the mask were originally computed. The goal here is to prevent against overflowing in neibourghing catchements.</p>
+
+  <br>
+    
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

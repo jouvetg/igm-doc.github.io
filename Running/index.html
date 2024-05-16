@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/Running/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Running IGM - IGM documentation</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Parameters (params, full list)", url: "#_top", children: [
+          ]},
+          {title: "Modules (modules)", url: "#modules-modules", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../modules/oggm_shop/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../modules/oggm_shop/" class="btn btn-xs btn-link">
+        oggm_shop
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Examples/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Examples/" class="btn btn-xs btn-link">
+        Examples
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>Assuming you have <a href="https://github.com/jouvetg/igm/wiki/1.-Installation">installed</a> the right igm environment, the glacier evolution model IGM can be run via the command <code>igm_run</code>:
+define
+    igm_run --RGI-ID RGI60-11.01450 --time_start 2023 --time_end 2100</p>
+<p>where parameters are given in command line as above or in a file params.json (recommended) like </p>
+<pre><code class="language-json">{
+  &quot;modules_preproc&quot;: [&quot;oggm_shop&quot;],
+  &quot;modules_process&quot;: [&quot;smb_simple&quot;,&quot;iceflow&quot;,&quot;time&quot;,&quot;thk&quot;],
+  &quot;modules_postproc&quot;: [&quot;write_ncdf&quot;,&quot;plot2d&quot;,&quot;print_info&quot;,&quot;print_comp&quot;],
+  &quot;oggm_RGI_ID&quot;: &quot;RGI60-11.01238&quot;,
+  &quot;time_start&quot;: 2023.0,
+  &quot;time_end&quot;: 2100.0
+}
+</code></pre>
+<p>and <a href="https://github.com/jouvetg/igm/blob/main/igm_run.py">igm_run.py</a> is a short python script located in the root directory that perform the following steps (check the <a href="https://github.com/jouvetg/igm/blob/main/igm_run.py">code</a> for more details):</p>
+<ul>
+<li>collect parameters into <code>params</code> object, including the ordered list of modules <code>modules</code>,</li>
+<li>define a <code>state</code> object that contains all the data (e.g. ice thickness),</li>
+<li>initialize all model components in turn,</li>
+<li>update all model components in turn within a time loop from start to end times,</li>
+<li>finalize all model components in turn.</li>
+</ul>
+<p>Therefore running IGM requires to define parameters <code>params</code>, which includes <strong>first-of-all</strong> the list of wished IGM modules.</p>
+<p>IGM can also take the parameter file as input as follows: <code>igm_run --param_file params1.json</code></p>
+<h1 id="parameters-params-full-list">Parameters (<code>params</code>, <a href="https://github.com/jouvetg/igm/blob/main/doc/all.md">full list</a>)</h1>
+<p>IGM has a few core parameters:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">short</th>
+<th style="text-align: left;">long</th>
+<th style="text-align: left;">default</th>
+<th style="text-align: left;">help</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>--param_file</code></td>
+<td style="text-align: left;"><code>params.json</code></td>
+<td style="text-align: left;">Parameter file</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>--modules_preproc</code></td>
+<td style="text-align: left;"><code>["prepare_data"]</code></td>
+<td style="text-align: left;">List of pre-processing modules</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>--modules_process</code></td>
+<td style="text-align: left;"><code>["iceflow","time","thk"]</code></td>
+<td style="text-align: left;">List of processing modules</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>--modules_postproc</code></td>
+<td style="text-align: left;"><code>["write_ncdf","print_info"]</code></td>
+<td style="text-align: left;">List of post-processing modules</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>--logging</code></td>
+<td style="text-align: left;"><code>False</code></td>
+<td style="text-align: left;">Activate the logging</td>
+</tr>
+</tbody>
+</table>
+<p>and many other module-specific parameters, see the <a href="https://github.com/jouvetg/igm/blob/main/doc/all.md">full list of parameters</a> or the  <a href="https://github.com/jouvetg/igm/wiki/3.-Modules">module documentation</a> for the meaning and default values of the parameters of each module. Parameters passed in command line override those passed in the jon parameter file, which override the default IGM parameters.</p>
+<h1 id="modules-modules">Modules (<em>modules</em>)</h1>
+<p><img alt="Check here to vizualize the flowchart of IGM modules" src="../fig/IGM-modules-flowchart.png" /></p>
+<p><strong>IGM is organized module-wise.</strong> Each user must pick a sequence of existing <strong>pre-processing</strong>, <strong>processing</strong>, <strong>post-processing</strong> and/or <strong>user-made</strong> modules she/he wishes to have for her/his application (check at the <a href="https://github.com/jouvetg/igm/wiki/3.-Modules">module documentation</a>. Each module implements all least 4 functions for module-specific parameter definition, initialization, update and finalization, which are called by <code>igm_run</code>. This section helps to chose the appropriate module. First one needs <strong>pre-processing modules</strong>:</p>
+<ul>
+<li>For modelling individual present-day glacier, the best is to use the OGGM-based <code>prepare_data</code> module, which take care of downloading all the gridded data appropriatly. In that case, the <code>modules_preproc</code> in the json parameter file look like: </li>
+</ul>
+<pre><code class="language-json">   &quot;modules_preproc&quot;: [&quot;oggm_shop&quot;], 
+</code></pre>
+<ul>
+<li>
+<p>Alternatively to module <code>oggm_shop</code>, one may load the data directly NetCDF file (with module <code>load_ncdf</code>), tif file (with module <code>load_tif</code>) or from analytical formula for synthetic glacier tests (<code>synthetic</code>).</p>
+</li>
+<li>
+<p>Optionally the additional module <code>optimize</code> permits to do data assimilation seeking for ice thickness distribution, ice flow parameters that yield the best fit with data (e.g. surface ice speeds). In that case, the `modules_preproc in the json parameter file look like: </p>
+</li>
+</ul>
+<pre><code class="language-json">&quot;modules_preproc&quot;: [&quot;prepare_data&quot;,&quot;optimize&quot;],
+</code></pre>
+<p>Second one needs to define <strong>processing</strong> modules:</p>
+<ul>
+<li>The minimum to have as processing is the combination of ice flow (module <code>iceflow</code>), ice thickness (module <code>thk</code>), and time step (module <code>time</code>):</li>
+</ul>
+<pre><code class="language-json">  &quot;modules_process&quot;: [&quot;iceflow&quot;&quot;,&quot;time&quot;,&quot;thk&quot;],
+</code></pre>
+<ul>
+<li>However, it sounds reasonable to add at least a surface mass balance module (e.g. <code>smb_simple</code>), and other components we like to have (e.g. computation of vertical velocity, particle trajectory, climate, enthalpy, ...) making sure to respect a logical order, i.e., </li>
+</ul>
+<pre><code class="language-json">  &quot;modules_process&quot;: [&quot;smb_simple&quot;,&quot;iceflow&quot;,&quot;time&quot;,&quot;thk&quot;,&quot;vert_flow&quot;,&quot;particles&quot;],
+</code></pre>
+<p>Then, one needs <strong>post-processing</strong> modules to output the results of the model, e.g. this line will permit to write model output in NetCDF files, make 2D plots, print basic informatinN (e.g. ice volume), and produce a nice 3D animation of the run at the end:</p>
+<pre><code class="language-json">  &quot;modules_postproc&quot;: [ &quot;write_ncdf&quot;, &quot;plot2d&quot;, &quot;print_info&quot;,  &quot;anim_mayavi&quot; ]
+</code></pre>
+<p>Lastly, one often needs to customize the code for specific applications. This is easy to do so with IGM, e.g. for imposing own climate forcing, defining own surface mass balance, ... For that purpose, implement your module in a separate file my_mod.py, and add it to the workflow</p>
+<pre><code class="language-json">  &quot;modules_process&quot;: [&quot;smb_simple&quot;,&quot;iceflow&quot;,&quot;time&quot;,&quot;thk&quot;,&quot;my_mod&quot;],
+</code></pre>
+<p>then, the module will be automatically loaded by <code>igm_run</code> when being executed.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../modules/oggm_shop/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../modules/oggm_shop/" class="btn btn-xs btn-link">
+        oggm_shop
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Examples/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Examples/" class="btn btn-xs btn-link">
+        Examples
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

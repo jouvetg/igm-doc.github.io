@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/modules/thk/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>thk - IGM documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "IGM module thk", url: "#_top", children: [
+          ]},
+          {title: "Description:", url: "#description", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../vert_flow/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../vert_flow/" class="btn btn-xs btn-link">
+        vert_flow
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../time/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../time/" class="btn btn-xs btn-link">
+        time
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h3 id="igm-module-thk"><h1 align="center" id="title">IGM module <code>thk</code> </h1></h3>
+<h1 id="description">Description:</h1>
+<p>This IGM module solves the mass conservation of ice to update the thickness from ice flow (computed from module <code>iceflow</code>) and surface mass balance (given any module that update <code>smb</code>). The mass conservation equation is solved using an explicit first-order upwind finite-volume scheme on the 2D working grid. With this scheme mass of ice is allowed to move from cell to cell (where thickness and velocities are defined) from edge-defined fluxes (inferred from depth-averaged velocities, and ice thickness in upwind direction). The resulting scheme is mass conservative and parallelizable (because fully explicit). However, it is subject to a CFL condition. This means that the time step (defined in module <code>time</code>) is controlled by parameter parameter <code>time_cfl</code>, which is the maximum number of cells crossed in one iteration (this parameter cannot exceed one), see the documentation of module <code>time</code>. A bit more details on the scheme are given in the following paper.</p>
+<pre><code>@article{jouvet2022deep,
+  author =        {Jouvet, Guillaume and Cordonnier, Guillaume and
+                   Kim, Byungsoo and L{\&quot;u}thi, Martin and
+                   Vieli, Andreas and Aschwanden, Andy},
+  journal =       {Journal of Glaciology},
+  number =        {270},
+  pages =         {651--664},
+  publisher =     {Cambridge University Press},
+  title =         {Deep learning speeds up ice flow modelling by several
+                   orders of magnitude},
+  volume =        {68},
+  year =          {2022},
+  doi =           {10.1017/jog.2021.120},
+}
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../vert_flow/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../vert_flow/" class="btn btn-xs btn-link">
+        vert_flow
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../time/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../time/" class="btn btn-xs btn-link">
+        time
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/modules/particles/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>particles - IGM documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "IGM module particles", url: "#_top", children: [
+          ]},
+          {title: "Description:", url: "#description", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../rockflow/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../rockflow/" class="btn btn-xs btn-link">
+        rockflow
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../enthalpy/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../enthalpy/" class="btn btn-xs btn-link">
+        enthalpy
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h3 id="igm-module-particles"><h1 align="center" id="title">IGM module <code>particles</code> </h1></h3>
+<h1 id="description">Description:</h1>
+<p>This IGM module implements a particle tracking routine, which computes trajectory of virtual particles advected by the ice flow. The specificity is that it runs in live time during the forward mdodel run and a large number of particles can be computed tanks to the parrallel implementation with TensorFlow. The routine includes particle seeding (by default in the accumulation area at regular intervals, but this can be customized), and tracking (advection by the velocity field in 3D). There is currently no strategy for removing particles, therefore, there is risk of overloading the memory when using this routine as it is for long time and/or with intense seeding.</p>
+<p>There are currently 2 implementations (switch with parameter <code>part_tracking_method</code>:</p>
+<ul>
+<li>
+<p><code>'simple'</code>: Horizontal and vertical directions are treated differently: i) In the horizontal plan, particles are advected with the horizontal velocity field (interpolated bi-linearly) ii) In the vertical direction, particles are tracked along the ice column scaled between 0 and 1 (0 at the bed, 1 at the top surface) with the  relative position along the ice column. Particles are always initialized at 1 relative height (assumed to be on the surface). The evolution of the particle within the ice column through time is computed according to the surface mass balance: the particle deepens when the surface mass balance is positive (the relative height decreases), and re-emerge when the surface mass balance is negative (the relative height increases).</p>
+</li>
+<li>
+<p><code>'3d'</code>: requires to activate module <code>vert_flow</code>, which computes the vertical velocity by integrating the divergence of the horizontal velocity. This permits in turn to perform 3D particle tracking.</p>
+</li>
+</ul>
+<p>For now, <code>part_tracking_method</code> is by default set to  <code>'simple'</code>, as the  <code>'3d'</code> method (and the dependence <code>vert_flow</code>) needs to further tested.</p>
+<p>Note that you my adapt the seeding to your need. You may keep the default seeding in the accumulation area setting the seeding frequency with <code>part_frequency_seeding</code> parameter and the seeding density <code>part_density_seeding</code> parameter. Alternatively, you may define your own seeding strategy (e.g. seeding close to rock walls/nunataks). To do so, you may redefine the function <code>seeding_particles()</code> in a file <code>particles.py</code> provided in the working directory (check the example aletsch-1880-2100). When excuted, <code>igm_run</code> will overide the original function <code>seeding_particles()</code> with the new user-defined one.</p>
+<p>The module needs horizontal velocities (state.U), as well as vertical speeds (state.W) that ice computed with the vert_flow module when <code>part_tracking_method</code> is set to <code>3d</code>. </p>
+<p><strong>Note:</strong> in the code, positions of particles are recorded within a vector of lenght te number of traked particels state.xpos, state.ypos, state.zpos. Variable state.rhpos provide the relative height within the ice column (1 at the surface, 0 at the bed). At each time step, the weight of surface debris contains in each cell the 2D
+ horizontal grid is computed, and stored in variable state.weight_particles.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../rockflow/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../rockflow/" class="btn btn-xs btn-link">
+        rockflow
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../enthalpy/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../enthalpy/" class="btn btn-xs btn-link">
+        enthalpy
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

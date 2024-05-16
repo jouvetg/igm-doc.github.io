@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/modules/include_icemask/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>include_icemask - IGM documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "IGM module include_icemask", url: "#_top", children: [
+          ]},
+          {title: "Description:", url: "#description", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../pretraining/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../pretraining/" class="btn btn-xs btn-link">
+        pretraining
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../load_tif/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../load_tif/" class="btn btn-xs btn-link">
+        load_tif
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h3 id="igm-module-include_icemask"><h1 align="center" id="title">IGM module <code>include_icemask</code> </h1></h3>
+<h1 id="description">Description:</h1>
+<p>This IGM module loads a shapefile (ESRI shapefile) and creates an ice mask from it.
+The shapefile can be either the coordinates where there should be no glacier (default)
+or where there should be glaciers (<code>mask_invert</code> = True). </p>
+<p>Input: Shapefile (.shp) exported from any GIS program (e.g. QGIS).
+Output: state.icemask</p>
+<p>This module can be used with any igm setup that calculates the new glacier surface via the <code>state.smb</code> variable.
+    For example add to <code>smb_simple.py</code>:</p>
+<pre><code class="language-python">    # if an icemask exists, then force negative smb
+    if hasattr(state, &quot;icemask&quot;)
+        state.smb = tf.where((state.smb&lt;0)|(state.icemask&gt;0.5),state.smb,-10)
+</code></pre>
+<p>Add this module in the list of "modules_preproc" after loading the topography input.</p>
+<p>The input can be one or more polygon features. Sometimes it is easier to select the valley where the glacier should be (<code>mask_invert</code> = True)
+or draw polygons where the glacier should not be (e.g. side valleys with no further interest).</p>
+<p>IMPORTANT: Be aware of the coordinate system used in the nc file and the shapefile.</p>
+<p>Author: Andreas Henz, andreas.henz@geo.uzh.ch  (06.09.2023)</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../pretraining/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../pretraining/" class="btn btn-xs btn-link">
+        pretraining
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../load_tif/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../load_tif/" class="btn btn-xs btn-link">
+        load_tif
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

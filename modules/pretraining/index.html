@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/modules/pretraining/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>pretraining - IGM documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "IGM module pretaining", url: "#_top", children: [
+          ]},
+          {title: "Description:", url: "#description", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../optimize/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../optimize/" class="btn btn-xs btn-link">
+        optimize
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../include_icemask/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../include_icemask/" class="btn btn-xs btn-link">
+        include_icemask
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h3 id="igm-module-pretaining"><h1 align="center" id="title">IGM module <code>pretaining</code> </h1></h3>
+<h1 id="description">Description:</h1>
+<p>This module performs a pretraining of the ice flow iflo_emulator on a glacier catalogue to improve the performance of the emaulator when used in glacier forward run. The pretraining can be relatively computationally demanding task (a couple of hours). This module should be called alone independently of any other igm module. Here is an example of paramter file:</p>
+<pre><code class="language-json">{
+  &quot;modules_preproc&quot;: [&quot;pretraining&quot;],
+  &quot;modules_process&quot;: [],
+  &quot;modules_postproc&quot;: [],
+  &quot;data_dir&quot;: &quot;surflib3d_shape_100&quot;,
+  &quot;iflo_solve_nbitmax&quot;: 2000,
+  &quot;iflo_solve_stop_if_no_decrease&quot;: false,
+  &quot;iflo_retrain_emulator_lr&quot;: 0.0001,
+  &quot;iflo_dim_arrhenius&quot;: 3,
+  &quot;soft_begining&quot;: 500
+}
+</code></pre>
+<p>To run it, one first needs to have available a glacier catalogue.
+ I provide here <a href="https://doi.org/10.5281/zenodo.8332898"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.8332898.svg" /></a> a dataset of a glacier catalogue (mountain glaciers) I have mostly used for pretraining IGM emaulators.</p>
+<p>Once downloaded (or self generated), the folder 
+"surflib3d_shape_100" can be re-organized into a subfolder "train" and a subfolder "test"  as follows:</p>
+<pre><code>├── test
+│   └── NZ000_A78_C0
+└── train
+    ├── ALP02_A78_C0
+    ├── ALP03_A78_C0
+    ├── ALP04_A78_C0
+    ├── ALP05_A78_C0
+    ├── ALP06_A78_C0
+    ├── ALP11_A78_C0
+    ├── ALP17_A78_C0
+</code></pre>
+<p>The path (or name of the data folder) must be pass in parameter <code>data_dir</code>.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../optimize/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../optimize/" class="btn btn-xs btn-link">
+        optimize
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../include_icemask/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../include_icemask/" class="btn btn-xs btn-link">
+        include_icemask
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

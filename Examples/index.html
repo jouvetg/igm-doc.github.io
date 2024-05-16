@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/Examples/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Examples - IGM documentation</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Running/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Running/" class="btn btn-xs btn-link">
+        Running IGM
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Installation/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Installation/" class="btn btn-xs btn-link">
+        Installation
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>The best and quickest way to get to know IGM is to run given examples. Having IGM installed on your machine, you can simply run <code>igm_run</code> in a folder that contains the following parameter file <code>params.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;modules_preproc&quot;: [&quot;oggm_shop&quot;],
+  &quot;modules_process&quot;: [&quot;clim_oggm&quot;,
+                      &quot;smb_oggm&quot;,
+                      &quot;iceflow&quot;,
+                      &quot;time&quot;,
+                      &quot;thk&quot;
+                      ],
+  &quot;modules_postproc&quot;: [&quot;write_ncdf&quot;,
+                       &quot;plot2d&quot;,
+                       &quot;print_info&quot;,
+                       &quot;print_comp&quot;],
+  &quot;clim_oggm_clim_trend_array&quot;: [
+                        [&quot;time&quot;, &quot;delta_temp&quot;, &quot;prec_scal&quot;],
+                        [ 1900,           0.0,         1.0],
+                        [ 2020,           0.0,         1.0],
+                        [ 2100,           4.0,         1.0]
+                                 ],
+  &quot;oggm_RGI_ID&quot;: &quot;RGI60-11.01450&quot;,
+  &quot;time_start&quot;: 1800.0,
+  &quot;time_end&quot;: 2100.0,
+  &quot;plt2d_live&quot;: true,
+  &quot;iflo_init_slidingco&quot;: 0.25
+}
+</code></pre>
+<p>You may run other ready-to-use examples in the folder <code>test/examples/</code> in the develop version, which contains input data and parameter files. To run the example, just go in each folder and run <code>igm_run</code> there. You have the following examples available:</p>
+<!-- You can do this with online Colab Notebook or locally on your machine:
+
+* The easiest way is to run notebooks in [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jouvetg/igm/), which offers free access to GPU. Advantageously, you don't have to install anything, all is done.
+
+* If you have IGM installed on your machine, you may already run ready-to-use examples in the folder `examples/`, which contains input data and parameter files. To run the example, just go in each folder and run `igm_run` there. You have the following examples available:
+
+-->
+
+<ul>
+<li>
+<p><strong>quick-demo</strong> provides a set-up to model any glacier given an RGI ID, with a OGGM-based climate forcing and SMB. </p>
+</li>
+<li>
+<p><strong>quick-demo-mysmb</strong> is like <strong>quick-demo</strong> but wirh a own user-defined SMB module / parametrization.</p>
+</li>
+<li>
+<p><strong>aletsch-basic</strong> provides a simple set-up for an advance-retreat simulation of the largest glacier of the European Alps -- Aletsch Glacier, Switzerland -- using a simple parametrization of the mass balance based on time-varying Equilibrium Line Altitudes (ELA).</p>
+</li>
+<li>
+<p><strong>aletsch-1880-2100</strong> gives the set-up to reproduce the <a href="https://jouvetg.github.io/the-aletsch-glacier-module">simulations</a> of the Great Aletsch Glacier (Switzerland) in the <a href="https://www.cambridge.org/core/journals/journal-of-glaciology/article/modelling-the-retreat-of-grosser-aletschgletscher-switzerland-in-a-changing-climate/C877413079F73C5FC6131FC7BC031B69">past</a> and in the <a href="https://www.cambridge.org/core/journals/journal-of-glaciology/article/future-retreat-of-great-aletsch-glacier/EB46DC696E0AB9528168F42595EE23D9">future</a> based on the CH2018 climate scenarios and an accumulation/melt model.</p>
+</li>
+<li>
+<p><strong>aletsch-invert</strong> and <strong>rhone-invert</strong> gives an example of data assimilation with IGM (Warning: inverse modelling requires tuning parameters for each glacier). <strong>rhone-invert</strong> is the most advanced/recent setting.</p>
+</li>
+<li>
+<p><strong>paleo-alps</strong> consists of a simple set-up to run a paleo glacier model in the European Alps in paleo times with different catchments (lyon, ticino, rhine, linth glaciers) with IGM around the last glacial maximum (LGM, about 24 BP in the Alps).</p>
+</li>
+<li>
+<p><strong>synthetic</strong> permits to make simple numerical experiments with simple synthetic bedrock topographies.</p>
+</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Running/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Running/" class="btn btn-xs btn-link">
+        Running IGM
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Installation/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Installation/" class="btn btn-xs btn-link">
+        Installation
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

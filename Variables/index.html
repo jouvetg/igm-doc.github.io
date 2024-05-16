@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/Variables/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Variables - IGM documentation</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../QandA/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../QandA/" class="btn btn-xs btn-link">
+        Q&A
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Custum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Custum/" class="btn btn-xs btn-link">
+        Custom
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>Whenever this is possible, IGM adopts name convention of <a href="https://www.pism.io/">PISM</a>. Here is a minimal list of key variables:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable names</th>
+<th style="text-align: left;">Shape</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">t</td>
+<td style="text-align: left;">()</td>
+<td style="text-align: left;">Time variable (scalar)</td>
+<td style="text-align: left;">y</td>
+</tr>
+<tr>
+<td style="text-align: left;">dt</td>
+<td style="text-align: left;">()</td>
+<td style="text-align: left;">Time step (scalar)</td>
+<td style="text-align: left;">y</td>
+</tr>
+<tr>
+<td style="text-align: left;">x,y</td>
+<td style="text-align: left;">(nx)</td>
+<td style="text-align: left;">Coordinates vectors</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">thk</td>
+<td style="text-align: left;">(ny)</td>
+<td style="text-align: left;">Ice thickness</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">topg</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Basal topography (or bedrock)</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">usurf</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Surface topography</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">smb</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Surface Mass Balance</td>
+<td style="text-align: left;">m/y ice-eq</td>
+</tr>
+<tr>
+<td style="text-align: left;">ubar</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">x- depth-average velocity of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">vbar</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">y- depth-average velocity of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">(nz,ny,nx)</td>
+<td style="text-align: left;">x-horiz. 3D velocity field of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">V</td>
+<td style="text-align: left;">(nz,ny,nx)</td>
+<td style="text-align: left;">y-horiz. 3D velocity field of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;">(nz,ny,nx)</td>
+<td style="text-align: left;">z-vert.  3D velocity field of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">arrhenius</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Arrhenius Factor</td>
+<td style="text-align: left;">MPa^(-3) y^(-1)</td>
+</tr>
+<tr>
+<td style="text-align: left;">slidingco</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Sliding Coefficient</td>
+<td style="text-align: left;">MPa m^(-1/3) y^(-1/3)</td>
+</tr>
+<tr>
+<td style="text-align: left;">divflux</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Divergence of the flux</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">icemask</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Mask to restrict the smb comp.</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">dtopgdt</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Erosion rate</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">xpos,ypos</td>
+<td style="text-align: left;">(nb particles)</td>
+<td style="text-align: left;">x,y position of particles</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">rhpos</td>
+<td style="text-align: left;">(nb particles)</td>
+<td style="text-align: left;">rel. pos of particles in ice column</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">air_temp</td>
+<td style="text-align: left;">(nt,ny,nx)</td>
+<td style="text-align: left;">seasonal air temperature 2 m above ground</td>
+<td style="text-align: left;">°C</td>
+</tr>
+<tr>
+<td style="text-align: left;">precipitation</td>
+<td style="text-align: left;">(nt,ny,nx)</td>
+<td style="text-align: left;">seasonal precipitation (water eq)</td>
+<td style="text-align: left;">kg m^(-2) y^(-1)</td>
+</tr>
+</tbody>
+</table>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../QandA/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../QandA/" class="btn btn-xs btn-link">
+        Q&A
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Custum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Custum/" class="btn btn-xs btn-link">
+        Custom
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/modules/iceflow/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>iceflow - IGM documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "IGM module iceflow", url: "#_top", children: [
+          ]},
+          {title: "Description:", url: "#description", children: [
+          ]},
+          {title: "Reference", url: "#reference", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../time/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../time/" class="btn btn-xs btn-link">
+        time
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../smb_oggm/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../smb_oggm/" class="btn btn-xs btn-link">
+        smb_oggm
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h3 id="igm-module-iceflow"><h1 align="center" id="title">IGM module <code>iceflow</code> </h1></h3>
+<h1 id="description">Description:</h1>
+<p>This IGM module models ice flow dynamics in 3D using a Convolutional Neural Network based on Physics Informed Neural Network as described in this <a href="https://eartharxiv.org/repository/view/5335/">paper</a>. In more details, we train a CNN to minimise the energy associated with high-order ice flow equations within the time iterations of a glacier evolution model. As a result, our iflo_emulator is a computationally-efficient alternative to traditional solvers, it is capable to handle a variety of ice flow regimes and memorize previous solutions.</p>
+<p>Pre-trained emulators are provided by defaults (parameter <code>iflo_emulator</code>). However, a from scratch iflo_emulator can be requested with <code>iflo_emulator=""</code>. The most important parameters are:</p>
+<ul>
+<li>physical parameters </li>
+</ul>
+<pre><code class="language-json">&quot;iflo_init_slidingco&quot;: 10000.0  # Init slid. coeff. ($Mpa^{-3} y^{-1} m$)
+&quot;iflo_init_arrhenius&quot;: 78.0     # Init Arrhenius cts ($Mpa^{-3} y^{-1}$)
+&quot;iflo_exp_glen&quot;: 3              # Glen's exponent
+&quot;iflo_exp_weertman&quot;:  3         # Weertman's sliding law exponent
+</code></pre>
+<ul>
+<li>related to the vertical discretization:</li>
+</ul>
+<pre><code class="language-json">&quot;iflo_Nz&quot;: 10                 # number of vertical layers
+&quot;iflo_vert_spacing&quot;: 4.0     # 1.0 for equal vertical spacing, 4.0 otherwise
+</code></pre>
+<ul>
+<li>learning rate and frequency of retraining:</li>
+</ul>
+<pre><code class="language-json">&quot;iflo_retrain_emulator_lr&quot;: 0.00002 
+&quot;iflo_retrain_emulator_freq&quot;: 5     
+</code></pre>
+<p>While this module was targeted for deep learning emulation, it important parameters for solving are :</p>
+<p>is possible to
+use the solver (<code>iflo_type='solved'</code>) instead of the default iflo_emulator (<code>iflo_type='emulated'</code>), or use the two together (<code>iflo_type='diagnostic'</code>) to assess the emaultor against the solver. Most important parameters for solving are :</p>
+<pre><code class="language-json">&quot;iflo_solve_step_size&quot;: 0.00002 
+&quot;iflo_solve_nbitmax&quot;: 5     
+</code></pre>
+<p>One may choose between 2D arrhenius factor by changing parameters between <code>iflo_dim_arrhenius=2</code> or <code>iflo_dim_arrhenius=3</code> -- le later is necessary for the enthalpy model.</p>
+<p>When treating ery large arrays, retraining must be done sequentially patch-wise for memory reason. The size of the pathc is controlled by parameter <code>iflo_multiple_window_size=750</code>.</p>
+<h1 id="reference">Reference</h1>
+<pre><code>@article{jouvet2023ice,
+  title={Ice flow model emulator based on physics-informed deep learning},
+  author={Jouvet, Guillaume and Cordonnier, Guillaume},
+  year={2023},
+  publisher={EarthArXiv}
+}
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../time/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../time/" class="btn btn-xs btn-link">
+        time
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../smb_oggm/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../smb_oggm/" class="btn btn-xs btn-link">
+        smb_oggm
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
