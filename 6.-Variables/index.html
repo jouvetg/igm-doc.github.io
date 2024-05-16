@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/6.-Variables/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Variables - IGM documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Variables";
+        var mkdocs_page_input_path = "6.-Variables.md";
+        var mkdocs_page_url = "/igm-doc.github.io/6.-Variables/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> IGM documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../1.Installation.md">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2.-Examples--%28quick-start%29/">Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../3.-Runing-IGM/">Runing-IGM</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../4.-IGM-module-documentation/">IGM-module-documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../5.-Custom-modules-%28coding%29/">Custom-modules</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Variables</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Q%26A/">Q&A</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">IGM documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Variables</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Whenever this is possible, IGM adopts name convention of <a href="https://www.pism.io/">PISM</a>. Here is a minimal list of key variables:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable names</th>
+<th style="text-align: left;">Shape</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">t</td>
+<td style="text-align: left;">()</td>
+<td style="text-align: left;">Time variable (scalar)</td>
+<td style="text-align: left;">y</td>
+</tr>
+<tr>
+<td style="text-align: left;">dt</td>
+<td style="text-align: left;">()</td>
+<td style="text-align: left;">Time step (scalar)</td>
+<td style="text-align: left;">y</td>
+</tr>
+<tr>
+<td style="text-align: left;">x,y</td>
+<td style="text-align: left;">(nx)</td>
+<td style="text-align: left;">Coordinates vectors</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">thk</td>
+<td style="text-align: left;">(ny)</td>
+<td style="text-align: left;">Ice thickness</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">topg</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Basal topography (or bedrock)</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">usurf</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Surface topography</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">smb</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Surface Mass Balance</td>
+<td style="text-align: left;">m/y ice-eq</td>
+</tr>
+<tr>
+<td style="text-align: left;">ubar</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">x- depth-average velocity of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">vbar</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">y- depth-average velocity of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">(nz,ny,nx)</td>
+<td style="text-align: left;">x-horiz. 3D velocity field of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">V</td>
+<td style="text-align: left;">(nz,ny,nx)</td>
+<td style="text-align: left;">y-horiz. 3D velocity field of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;">(nz,ny,nx)</td>
+<td style="text-align: left;">z-vert.  3D velocity field of ice</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">arrhenius</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Arrhenius Factor</td>
+<td style="text-align: left;">MPa^(-3) y^(-1)</td>
+</tr>
+<tr>
+<td style="text-align: left;">slidingco</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Sliding Coefficient</td>
+<td style="text-align: left;">MPa m^(-1/3) y^(-1/3)</td>
+</tr>
+<tr>
+<td style="text-align: left;">divflux</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Divergence of the flux</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">icemask</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Mask to restrict the smb comp.</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">dtopgdt</td>
+<td style="text-align: left;">(ny,nx)</td>
+<td style="text-align: left;">Erosion rate</td>
+<td style="text-align: left;">m/y</td>
+</tr>
+<tr>
+<td style="text-align: left;">xpos,ypos</td>
+<td style="text-align: left;">(nb particles)</td>
+<td style="text-align: left;">x,y position of particles</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">rhpos</td>
+<td style="text-align: left;">(nb particles)</td>
+<td style="text-align: left;">rel. pos of particles in ice column</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">air_temp</td>
+<td style="text-align: left;">(nt,ny,nx)</td>
+<td style="text-align: left;">seasonal air temperature 2 m above ground</td>
+<td style="text-align: left;">°C</td>
+</tr>
+<tr>
+<td style="text-align: left;">precipitation</td>
+<td style="text-align: left;">(nt,ny,nx)</td>
+<td style="text-align: left;">seasonal precipitation (water eq)</td>
+<td style="text-align: left;">kg m^(-2) y^(-1)</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../5.-Custom-modules-%28coding%29/" class="btn btn-neutral float-left" title="Custom-modules"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Q%26A/" class="btn btn-neutral float-right" title="Q&A">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../5.-Custom-modules-%28coding%29/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Q%26A/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/4.-IGM-module-documentation/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>IGM-module-documentation - IGM documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "IGM-module-documentation";
+        var mkdocs_page_input_path = "4.-IGM-module-documentation.md";
+        var mkdocs_page_url = "/igm-doc.github.io/4.-IGM-module-documentation/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> IGM documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../1.Installation.md">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2.-Examples--%28quick-start%29/">Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../3.-Runing-IGM/">Runing-IGM</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">IGM-module-documentation</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../5.-Custom-modules-%28coding%29/">Custom-modules</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../6.-Variables/">Variables</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Q%26A/">Q&A</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">IGM documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">IGM-module-documentation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pre-processing-modules">Pre-processing modules</h1>
+<p>Source code can be found in 'igm/modules/preproc'</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Module name</th>
+<th>Doc</th>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">oggm_shop</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/oggm_shop.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/preproc/oggm_shop/oggm_shop.py">code</a></td>
+<td>feeds the initial 'state' from online data using OGGM given RGI ID (unix and mac only)</td>
+</tr>
+<tr>
+<td style="text-align: left;">load_ncdf</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/load_ncdf.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/preproc/load_ncdf/load_ncdf.py">code</a></td>
+<td>feeds the initial 'state' from a given NetCDF file</td>
+</tr>
+<tr>
+<td style="text-align: left;">load_tif</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/load_tif.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/preproc/load_tif/load_tif.py">code</a></td>
+<td>feeds the initial 'state' from given tiff files</td>
+</tr>
+<tr>
+<td style="text-align: left;">include_icemask</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/include_icemask.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/preproc/include_icemas/include_icemask.py">code</a></td>
+<td>loads a shapefile (ESRI shapefile) and creates an ice mask from it</td>
+</tr>
+<tr>
+<td style="text-align: left;">pretraining</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/pretraining.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/preproc/pretraining/pretraining.py">code</a></td>
+<td>perform a pretraining of the iceflow emulator on a glacier catalogue</td>
+</tr>
+<tr>
+<td style="text-align: left;">optimize</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/optimize.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/preproc/optimize/optimize.py">code</a></td>
+<td>perform the preliminary optimization/inversion scheme (e.g. find the bedrock) from observations</td>
+</tr>
+</tbody>
+</table>
+<h1 id="processing-modules">Processing modules</h1>
+<p>Source code can be found in 'igm/modules/process'</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Module name</th>
+<th>Doc</th>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">clim_oggm</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/clim_oggm.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/clim_oggm/clim_oggm.py">code</a></td>
+<td>compute "oggm-like" climate data</td>
+</tr>
+<tr>
+<td style="text-align: left;">smb_oggm</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/smb_oggm.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/smb_oggm/smb_oggm.py">code</a></td>
+<td>compute "oggm-like" surface mass balance from climate data</td>
+</tr>
+<tr>
+<td style="text-align: left;">smb_simple</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/smb_simple.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/smb_simple/smb_simple.py">code</a></td>
+<td>compute surface mass balance with a simple ELA parametrization</td>
+</tr>
+<tr>
+<td style="text-align: left;">iceflow</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/iceflow.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/iceflow/iceflow.py">code</a></td>
+<td>compute the horizontal iceflow velocity field using Physics-Informed Deep Learning</td>
+</tr>
+<tr>
+<td style="text-align: left;">time</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/time.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/time/time.py">code</a></td>
+<td>compute the time step, time accounting for CFL and saving times</td>
+</tr>
+<tr>
+<td style="text-align: left;">thk</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/thk.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/thk/thk/thk.py">code</a></td>
+<td>computes the ice thickness solving mass conservation equation</td>
+</tr>
+<tr>
+<td style="text-align: left;">vert_flow</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/vert_flow.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/vert_flow/vert_flow.py">code</a></td>
+<td>compute the vertical component of the velocity a posteriori</td>
+</tr>
+<tr>
+<td style="text-align: left;">enthalpy</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/enthalpy.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/enthalpy/enthalpy.py">code</a></td>
+<td>compute the enthalpy and the subglacial hydrology (new! use with care)</td>
+</tr>
+<tr>
+<td style="text-align: left;">particles</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/particles.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/particles/particles.py">code</a></td>
+<td>compute the trajectory of individual lagrangian particles</td>
+</tr>
+<tr>
+<td style="text-align: left;">rockflow</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/rockflow.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/rockflow/rockflow.py">code</a></td>
+<td>extend the velocity field in ice ice-free area to mimic the dynamics of rocks in steep terrain</td>
+</tr>
+<tr>
+<td style="text-align: left;">glerosion</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/glerosion.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/glerosion/glerosion.py">code</a></td>
+<td>update  the topography after being eroded by glaciers</td>
+</tr>
+<tr>
+<td style="text-align: left;">avalanche</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/avalanche.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/avalanche/avalanche.py">code</a></td>
+<td>redistribute snow after taking into account snow avalanches</td>
+</tr>
+<tr>
+<td style="text-align: left;">gflex</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/gflex.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/process/gflex/gflex.py">code</a></td>
+<td>Compute lithospheric flexure using gflex python module</td>
+</tr>
+</tbody>
+</table>
+<h1 id="post-processing-modules">Post-processing modules</h1>
+<p>Source code can be found in 'igm/modules/postproc'</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Module name</th>
+<th>Doc</th>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">write_ncdf</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/write_ncdf.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/write_ncdf/write_ncdf.py">code</a></td>
+<td>writes the 2D results at given intervals in a NetCDF file</td>
+</tr>
+<tr>
+<td style="text-align: left;">write_tif</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/write_tif.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/write_tif/write_tif.py">code</a></td>
+<td>writes the 2D results at given intervals in a tif file</td>
+</tr>
+<tr>
+<td style="text-align: left;">write_ts</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/write_ts.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/write_ts/write_ts.py">code</a></td>
+<td>writes the time serie results at given intervals in a NetCDF file</td>
+</tr>
+<tr>
+<td style="text-align: left;">plot2d</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/plot2d.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/plot2d/plot2d.py">code</a></td>
+<td>produce on the fly 2D plots of ice thk/speed with particles if activated</td>
+</tr>
+<tr>
+<td style="text-align: left;">write_particles</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/write_particles.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/write_particles/write_particles.py">code</a></td>
+<td>write particle positions in dedicated files in the folder 'trajectory'</td>
+</tr>
+<tr>
+<td style="text-align: left;">print_info</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/print_info.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/print_info/print_info.py">code</a></td>
+<td>write basic information on the fly about ice volume, time step ...</td>
+</tr>
+<tr>
+<td style="text-align: left;">print_comp</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/print_comp.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/print_comp/print_comp.py">code</a></td>
+<td>summarize the computational costs of each step, and global of the run at the end</td>
+</tr>
+<tr>
+<td style="text-align: left;">anim_plotly</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/anim_plotply.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/anim_plotly/anim_plotly.py">code</a></td>
+<td>interactively make 3D vizu from the final NetCDF file (depends on dash and plotly)</td>
+</tr>
+<tr>
+<td style="text-align: left;">anim_mayavi</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/anim_mayavi.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/anim_mayavi/anim_mayavi.py">code</a></td>
+<td>make a nice 3D vizu from the final NetCDF file (depends on mayavi and pyqt5)</td>
+</tr>
+<tr>
+<td style="text-align: left;">anim_video</td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/doc/anim_video.md">doc</a></td>
+<td><a href="https://github.com/jouvetg/igm/blob/main/igm/modules/postproc/anim_video/anim_video.py">code</a></td>
+<td>make a nice mp4 animation from the final NetCDF file</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../3.-Runing-IGM/" class="btn btn-neutral float-left" title="Runing-IGM"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../5.-Custom-modules-%28coding%29/" class="btn btn-neutral float-right" title="Custom-modules">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../3.-Runing-IGM/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../5.-Custom-modules-%28coding%29/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,7 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://jouvetg.github.io/</loc>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/1.-Installation/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/2.-Examples--%28quick-start%29/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/3.-Runing-IGM/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/4.-IGM-module-documentation/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/5.-Custom-modules-%28coding%29/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/6.-Variables/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/About-GPUs/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/Credits-and-references/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/Home/</loc>
+         <lastmod>2024-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jouvetg.github.io/igm-doc.github.io/Q%26A/</loc>
          <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>

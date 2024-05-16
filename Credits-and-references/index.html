@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://jouvetg.github.io/igm-doc.github.io/Credits-and-references/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>References - IGM documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "References";
+        var mkdocs_page_input_path = "Credits-and-references.md";
+        var mkdocs_page_url = "/igm-doc.github.io/Credits-and-references/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> IGM documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../1.Installation.md">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2.-Examples--%28quick-start%29/">Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../3.-Runing-IGM/">Runing-IGM</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../4.-IGM-module-documentation/">IGM-module-documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../5.-Custom-modules-%28coding%29/">Custom-modules</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../6.-Variables/">Variables</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Q%26A/">Q&A</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">IGM documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">References</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="references">References</h1>
+<p>There is currently an in-progress IGM <a href="https://github.com/jouvetg/igm/blob/main/technical-paper/paper.pdf">technical paper</a> that will give you an overview of the physical components, modules, and capabilities of IGM.</p>
+<p>If you use IGM in publications, make sure to cite one of the following papers and the code version you used.</p>
+<pre><code>@article{IGM,
+  author       = "Jouvet, Guillaume and Cordonnier, Guillaume and Kim, Byungsoo and Lüthi, Martin and Vieli, Andreas and Aschwanden, Andy",  
+  title        = "Deep learning speeds up ice flow modelling by several orders of magnitude",
+  DOI          = "10.1017/jog.2021.120",
+  journal      = "Journal of Glaciology",
+  year         =  2021,
+  pages        = "1–14",
+  publisher    = "Cambridge University Press"
+}
+
+@article{IGM-inv,
+  author       = "Jouvet, Guillaume",
+  title        = "Inversion of a Stokes ice flow model emulated by deep learning",
+  DOI          = "10.1017/jog.2022.41",
+  journal      = "Journal of Glaciology",
+  year         = "2022",
+  pages        = "1--14",
+  publisher    = "Cambridge University Press"
+}
+
+@article{IGM-PINN,
+  title={Ice-flow model emulator based on physics-informed deep learning},
+  author={Jouvet, Guillaume and Cordonnier, Guillaume},
+  journal={Journal of Glaciology},
+  pages={1--15},
+  year={2023},
+  publisher={Cambridge University Press},
+  doi={10.1017/jog.2023.73}
+}
+</code></pre>
+<h1 id="acknowledgements">Acknowledgements</h1>
+<p>I greatly thank <a href="https://www-sop.inria.fr/members/Guillaume.Cordonnier/">Guillaume Cordonnier</a> for his valuable help with the TensorFlow implementation. The <a href="https://pism-docs.org">Parallel Ice Sheet Model</a> has greatly inspired the naming of variables, as well as the format of input and output NetCDF files.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
